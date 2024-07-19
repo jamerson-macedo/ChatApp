@@ -12,6 +12,8 @@
 		CF676FC62C4A21D10034C448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF676FC52C4A21D10034C448 /* Assets.xcassets */; };
 		CF676FC92C4A21D10034C448 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF676FC82C4A21D10034C448 /* Preview Assets.xcassets */; };
 		CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FD42C4AFD620034C448 /* SignInViewModel.swift */; };
+		CF676FDA2C4B033C0034C448 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FD92C4B033C0034C448 /* SignUpView.swift */; };
+		CF676FDC2C4B036F0034C448 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FDB2C4B036F0034C448 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		CF676FC52C4A21D10034C448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF676FC82C4A21D10034C448 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CF676FD42C4AFD620034C448 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		CF676FD92C4B033C0034C448 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		CF676FDB2C4B036F0034C448 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 		CF676FC02C4A21D00034C448 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				CF676FD62C4B031D0034C448 /* SignUp */,
 				CF676FCF2C4AFCEA0034C448 /* SignIn */,
 				CF676FC12C4A21D00034C448 /* ChatApp.swift */,
 				CF676FC52C4A21D10034C448 /* Assets.xcassets */,
@@ -100,6 +105,31 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CF676FD62C4B031D0034C448 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CF676FD82C4B03290034C448 /* ViewModel */,
+				CF676FD72C4B03230034C448 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CF676FD72C4B03230034C448 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF676FD92C4B033C0034C448 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF676FD82C4B03290034C448 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF676FDB2C4B036F0034C448 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF676FDA2C4B033C0034C448 /* SignUpView.swift in Sources */,
 				CF676FC42C4A21D00034C448 /* SignInView.swift in Sources */,
+				CF676FDC2C4B036F0034C448 /* SignUpViewModel.swift in Sources */,
 				CF676FC22C4A21D00034C448 /* ChatApp.swift in Sources */,
 				CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */,
 			);
