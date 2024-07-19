@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF676FC22C4A21D00034C448 /* ChatAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FC12C4A21D00034C448 /* ChatAppApp.swift */; };
-		CF676FC42C4A21D00034C448 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FC32C4A21D00034C448 /* ContentView.swift */; };
+		CF676FC22C4A21D00034C448 /* ChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FC12C4A21D00034C448 /* ChatApp.swift */; };
+		CF676FC42C4A21D00034C448 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FC32C4A21D00034C448 /* SignInView.swift */; };
 		CF676FC62C4A21D10034C448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF676FC52C4A21D10034C448 /* Assets.xcassets */; };
 		CF676FC92C4A21D10034C448 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF676FC82C4A21D10034C448 /* Preview Assets.xcassets */; };
+		CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF676FD42C4AFD620034C448 /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF676FBE2C4A21D00034C448 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF676FC12C4A21D00034C448 /* ChatAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppApp.swift; sourceTree = "<group>"; };
-		CF676FC32C4A21D00034C448 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CF676FC12C4A21D00034C448 /* ChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatApp.swift; sourceTree = "<group>"; };
+		CF676FC32C4A21D00034C448 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CF676FC52C4A21D10034C448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF676FC82C4A21D10034C448 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF676FD42C4AFD620034C448 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,8 @@
 		CF676FC02C4A21D00034C448 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
-				CF676FC12C4A21D00034C448 /* ChatAppApp.swift */,
-				CF676FC32C4A21D00034C448 /* ContentView.swift */,
+				CF676FCF2C4AFCEA0034C448 /* SignIn */,
+				CF676FC12C4A21D00034C448 /* ChatApp.swift */,
 				CF676FC52C4A21D10034C448 /* Assets.xcassets */,
 				CF676FC72C4A21D10034C448 /* Preview Content */,
 			);
@@ -65,6 +67,39 @@
 				CF676FC82C4A21D10034C448 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF676FCF2C4AFCEA0034C448 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CF676FD32C4AFD3F0034C448 /* Model */,
+				CF676FD22C4AFD370034C448 /* ViewModel */,
+				CF676FD12C4AFD2C0034C448 /* View */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CF676FD12C4AFD2C0034C448 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF676FC32C4A21D00034C448 /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF676FD22C4AFD370034C448 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF676FD42C4AFD620034C448 /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CF676FD32C4AFD3F0034C448 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF676FC42C4A21D00034C448 /* ContentView.swift in Sources */,
-				CF676FC22C4A21D00034C448 /* ChatAppApp.swift in Sources */,
+				CF676FC42C4A21D00034C448 /* SignInView.swift in Sources */,
+				CF676FC22C4A21D00034C448 /* ChatApp.swift in Sources */,
+				CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
