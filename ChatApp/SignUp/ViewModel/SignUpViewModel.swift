@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import UIKit
 import FirebaseStorage
+import FirebaseFirestore
 class SignUpViewModel :ObservableObject{
     @Published var uiState : SignUpUiState = .none
     @Published var image = UIImage()
@@ -18,7 +19,7 @@ class SignUpViewModel :ObservableObject{
     var formInvalid = false
     @Published var alertText = ""
     func signUp(){
-       
+        
         
         if(image.size.width <= 0 ){
             self.uiState = .error("Insira uma foto")
@@ -51,8 +52,28 @@ class SignUpViewModel :ObservableObject{
             ref.downloadURL{ url,error in
                 self.uiState = .success
                 print("foto criada\(url)")
+                guard let imageUrl = url else {return}
+                self.createUser(photoUrl: imageUrl)
                 
             }
         }
+    }
+    private func createUser(photoUrl : URL) {
+        // docuement() cria um documento com id aleatorio
+        Firestore.firestore().collection("users").document().setData([
+            "name": name,
+            "uuid" : Auth.auth().currentUser!.uid,
+            "profileUrl": photoUrl.absoluteString,
+            
+        ]){ err in
+            self.uiState = .loading
+            if err != nil {
+                self.uiState = .error(err!.localizedDescription)
+                print("error\(err?.localizedDescription)")
+                return
+            }
+            
+        }
+        
     }
 }
