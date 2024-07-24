@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewmodel :ContentViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            if viewmodel.isLogged{
+                MessagesView()
+            }else {
+                // signin view
+                SignInView()
+            }
+        }.onAppear{
+            viewmodel.onAppear()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewmodel: ContentViewModel())
 }

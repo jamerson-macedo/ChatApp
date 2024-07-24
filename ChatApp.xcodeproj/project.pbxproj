@@ -22,6 +22,10 @@
 		CFDA0E492C4F490900977B72 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E482C4F490900977B72 /* LoadingButton.swift */; };
 		CFDA0E4B2C4F4EFA00977B72 /* SignInUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E4A2C4F4EFA00977B72 /* SignInUiState.swift */; };
 		CFDA0E4D2C4F525100977B72 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E4C2C4F525100977B72 /* ImagePicker.swift */; };
+		CFDA0E522C51A3B000977B72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E512C51A3B000977B72 /* ContentView.swift */; };
+		CFDA0E552C51A3BF00977B72 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E542C51A3BF00977B72 /* ContentViewModel.swift */; };
+		CFDA0E5A2C51A68B00977B72 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E592C51A68B00977B72 /* MessagesView.swift */; };
+		CFDA0E5C2C51A69900977B72 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E5B2C51A69900977B72 /* MessagesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		CFDA0E482C4F490900977B72 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		CFDA0E4A2C4F4EFA00977B72 /* SignInUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUiState.swift; sourceTree = "<group>"; };
 		CFDA0E4C2C4F525100977B72 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CFDA0E512C51A3B000977B72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CFDA0E542C51A3BF00977B72 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		CFDA0E592C51A68B00977B72 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		CFDA0E5B2C51A69900977B72 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,8 @@
 		CF676FC02C4A21D00034C448 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA0E562C51A5D400977B72 /* Messages */,
+				CFDA0E4E2C51A39A00977B72 /* Content */,
 				CFDA0E472C4F48F200977B72 /* common */,
 				CF676FDD2C4B08CB0034C448 /* GoogleService-Info.plist */,
 				CF676FD62C4B031D0034C448 /* SignUp */,
@@ -169,6 +179,56 @@
 			path = common;
 			sourceTree = "<group>";
 		};
+		CFDA0E4E2C51A39A00977B72 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E502C51A3A400977B72 /* ViewModel */,
+				CFDA0E4F2C51A3A000977B72 /* View */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		CFDA0E4F2C51A3A000977B72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E512C51A3B000977B72 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDA0E502C51A3A400977B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E542C51A3BF00977B72 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CFDA0E562C51A5D400977B72 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E582C51A61000977B72 /* ViewModel */,
+				CFDA0E572C51A60C00977B72 /* View */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		CFDA0E572C51A60C00977B72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E592C51A68B00977B72 /* MessagesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDA0E582C51A61000977B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E5B2C51A69900977B72 /* MessagesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +314,10 @@
 				CFDA0E4D2C4F525100977B72 /* ImagePicker.swift in Sources */,
 				CF676FDC2C4B036F0034C448 /* SignUpViewModel.swift in Sources */,
 				CF676FC22C4A21D00034C448 /* ChatApp.swift in Sources */,
+				CFDA0E522C51A3B000977B72 /* ContentView.swift in Sources */,
+				CFDA0E552C51A3BF00977B72 /* ContentViewModel.swift in Sources */,
+				CFDA0E5C2C51A69900977B72 /* MessagesViewModel.swift in Sources */,
+				CFDA0E5A2C51A68B00977B72 /* MessagesView.swift in Sources */,
 				CFDA0E4B2C4F4EFA00977B72 /* SignInUiState.swift in Sources */,
 				CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */,
 				CF676FE82C4B0D290034C448 /* SignUpUiState.swift in Sources */,

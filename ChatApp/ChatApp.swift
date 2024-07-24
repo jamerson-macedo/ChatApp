@@ -12,10 +12,12 @@ import Firebase
 struct ChatApp: App {
     init(){
         FirebaseApp.configure()
+    
     }
     var body: some Scene {
         WindowGroup {
-            SignInView()
+            
+            ContentView(viewmodel: ContentViewModel())
         }
     }
 }

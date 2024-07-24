@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct MessagesView: View {
+    @StateObject var viewmodel = MessagesViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Logout"){
+            viewmodel.logout()
+        }
     }
 }
 
 #Preview {
-    MessagesView()
+    MessagesView(viewmodel: MessagesViewModel())
 }
