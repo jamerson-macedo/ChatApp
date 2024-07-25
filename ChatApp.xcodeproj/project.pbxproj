@@ -26,6 +26,13 @@
 		CFDA0E552C51A3BF00977B72 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E542C51A3BF00977B72 /* ContentViewModel.swift */; };
 		CFDA0E5A2C51A68B00977B72 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E592C51A68B00977B72 /* MessagesView.swift */; };
 		CFDA0E5C2C51A69900977B72 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E5B2C51A69900977B72 /* MessagesViewModel.swift */; };
+		CFDA0E602C51B47300977B72 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E5F2C51B47300977B72 /* HomeView.swift */; };
+		CFDA0E652C51CDA900977B72 /* ConfigsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E642C51CDA900977B72 /* ConfigsView.swift */; };
+		CFDA0E672C51CDB600977B72 /* ConfigsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E662C51CDB600977B72 /* ConfigsViewModel.swift */; };
+		CFDA0E6C2C51CEF400977B72 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E6B2C51CEF400977B72 /* ContactsView.swift */; };
+		CFDA0E6F2C51CF2A00977B72 /* ContacsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E6E2C51CF2A00977B72 /* ContacsViewModel.swift */; };
+		CFDA0E722C51CFB600977B72 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E712C51CFB600977B72 /* Contacts.swift */; };
+		CFDA0E742C51DEF100977B72 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E732C51DEF100977B72 /* ContactView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,13 @@
 		CFDA0E542C51A3BF00977B72 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CFDA0E592C51A68B00977B72 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		CFDA0E5B2C51A69900977B72 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
+		CFDA0E5F2C51B47300977B72 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CFDA0E642C51CDA900977B72 /* ConfigsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigsView.swift; sourceTree = "<group>"; };
+		CFDA0E662C51CDB600977B72 /* ConfigsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigsViewModel.swift; sourceTree = "<group>"; };
+		CFDA0E6B2C51CEF400977B72 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		CFDA0E6E2C51CF2A00977B72 /* ContacsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContacsViewModel.swift; sourceTree = "<group>"; };
+		CFDA0E712C51CFB600977B72 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		CFDA0E732C51DEF100977B72 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,9 @@
 		CF676FC02C4A21D00034C448 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA0E682C51CED600977B72 /* Contacts */,
+				CFDA0E612C51CD9000977B72 /* Configs */,
+				CFDA0E5D2C51B45D00977B72 /* Home */,
 				CFDA0E562C51A5D400977B72 /* Messages */,
 				CFDA0E4E2C51A39A00977B72 /* Content */,
 				CFDA0E472C4F48F200977B72 /* common */,
@@ -229,6 +246,82 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CFDA0E5D2C51B45D00977B72 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E5E2C51B46200977B72 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CFDA0E5E2C51B46200977B72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E5F2C51B47300977B72 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDA0E612C51CD9000977B72 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E632C51CD9A00977B72 /* ViewModel */,
+				CFDA0E622C51CD9700977B72 /* View */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		CFDA0E622C51CD9700977B72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E642C51CDA900977B72 /* ConfigsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDA0E632C51CD9A00977B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E662C51CDB600977B72 /* ConfigsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CFDA0E682C51CED600977B72 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E702C51CFAD00977B72 /* Model */,
+				CFDA0E6A2C51CEE200977B72 /* ViewModel */,
+				CFDA0E692C51CEDD00977B72 /* View */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		CFDA0E692C51CEDD00977B72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E6B2C51CEF400977B72 /* ContactsView.swift */,
+				CFDA0E732C51DEF100977B72 /* ContactView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFDA0E6A2C51CEE200977B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E6E2C51CF2A00977B72 /* ContacsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CFDA0E702C51CFAD00977B72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E712C51CFB600977B72 /* Contacts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,16 +402,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF676FDA2C4B033C0034C448 /* SignUpView.swift in Sources */,
+				CFDA0E602C51B47300977B72 /* HomeView.swift in Sources */,
 				CFDA0E492C4F490900977B72 /* LoadingButton.swift in Sources */,
+				CFDA0E742C51DEF100977B72 /* ContactView.swift in Sources */,
 				CF676FC42C4A21D00034C448 /* SignInView.swift in Sources */,
+				CFDA0E722C51CFB600977B72 /* Contacts.swift in Sources */,
 				CFDA0E4D2C4F525100977B72 /* ImagePicker.swift in Sources */,
 				CF676FDC2C4B036F0034C448 /* SignUpViewModel.swift in Sources */,
+				CFDA0E672C51CDB600977B72 /* ConfigsViewModel.swift in Sources */,
 				CF676FC22C4A21D00034C448 /* ChatApp.swift in Sources */,
+				CFDA0E6F2C51CF2A00977B72 /* ContacsViewModel.swift in Sources */,
 				CFDA0E522C51A3B000977B72 /* ContentView.swift in Sources */,
+				CFDA0E652C51CDA900977B72 /* ConfigsView.swift in Sources */,
 				CFDA0E552C51A3BF00977B72 /* ContentViewModel.swift in Sources */,
 				CFDA0E5C2C51A69900977B72 /* MessagesViewModel.swift in Sources */,
 				CFDA0E5A2C51A68B00977B72 /* MessagesView.swift in Sources */,
 				CFDA0E4B2C4F4EFA00977B72 /* SignInUiState.swift in Sources */,
+				CFDA0E6C2C51CEF400977B72 /* ContactsView.swift in Sources */,
 				CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */,
 				CF676FE82C4B0D290034C448 /* SignUpUiState.swift in Sources */,
 			);
