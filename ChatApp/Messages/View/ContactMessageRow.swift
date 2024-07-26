@@ -18,12 +18,11 @@ struct ContactMessageRow: View {
                 ProgressView()
             }
             .frame(width: 50,height: 50)
-           
-            VStack{
-                Text(contact.name).bold()
-                if let msg = contact.lastMessage{
-                    Text(msg).foregroundStyle(Color.gray)
-                }
+            VStack(alignment: .leading){
+                    Text(contact.name).foregroundStyle(Color.black).bold()
+                Text(contact.lastMessage!).foregroundStyle(Color.gray).lineLimit(1)
+                
+                
             }
             Spacer()
             

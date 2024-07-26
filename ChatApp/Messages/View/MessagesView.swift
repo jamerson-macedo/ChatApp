@@ -16,15 +16,16 @@ struct MessagesView: View {
             VStack{
                 // viewmodel is loading ?
                 List(viewmodel.contacts,id: \.self){contacts in
-                   
-                    NavigationLink {
-                        ChatView(contact: contacts)
-
-                    } label: {
-                        ContactMessageRow(contact: contacts)
+                    ScrollView{
+                        NavigationLink {
+                            ChatView(contact: contacts)
+                            
+                        } label: {
+                            ContactMessageRow(contact: contacts)
+                        }
+                        
+                        
                     }
-
-                    
                 }
                 
                 
