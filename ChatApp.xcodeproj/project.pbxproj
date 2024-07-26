@@ -37,6 +37,7 @@
 		CFDA0E7F2C53991B00977B72 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E7E2C53991B00977B72 /* ChatViewModel.swift */; };
 		CFDA0E812C5399F200977B72 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E802C5399F200977B72 /* ChatView.swift */; };
 		CFDA0E832C539ABF00977B72 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E822C539ABF00977B72 /* MessageRow.swift */; };
+		CFDA0E852C53C18A00977B72 /* ContactMessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E842C53C18A00977B72 /* ContactMessageRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		CFDA0E7E2C53991B00977B72 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		CFDA0E802C5399F200977B72 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		CFDA0E822C539ABF00977B72 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		CFDA0E842C53C18A00977B72 /* ContactMessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMessageRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				CFDA0E592C51A68B00977B72 /* MessagesView.swift */,
+				CFDA0E842C53C18A00977B72 /* ContactMessageRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				CFDA0E722C51CFB600977B72 /* Contacts.swift in Sources */,
 				CFDA0E772C53985C00977B72 /* Message.swift in Sources */,
 				CFDA0E832C539ABF00977B72 /* MessageRow.swift in Sources */,
+				CFDA0E852C53C18A00977B72 /* ContactMessageRow.swift in Sources */,
 				CFDA0E4D2C4F525100977B72 /* ImagePicker.swift in Sources */,
 				CF676FDC2C4B036F0034C448 /* SignUpViewModel.swift in Sources */,
 				CFDA0E672C51CDB600977B72 /* ConfigsViewModel.swift in Sources */,

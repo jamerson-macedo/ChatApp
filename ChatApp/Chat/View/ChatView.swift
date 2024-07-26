@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    let username : String
+    let contact :Contacts
     @StateObject var viewmodel = ChatViewModel()
     var body: some View {
         VStack{
@@ -34,7 +34,11 @@ struct ChatView: View {
                         RoundedRectangle(cornerRadius: 20.0).strokeBorder(Color(UIColor.separator))
                     }
                 if(!viewmodel.text.isEmpty){
-                    Button(action: {}, label: {
+                    Button(action: {
+                        
+                        viewmodel.sendMessage(contact:contact)
+                      
+                    }, label: {
                         
                         Text("Enviar").background(Color.blue)
                             .foregroundColor(Color.white).cornerRadius(10).padding(.trailing)
@@ -57,12 +61,16 @@ struct ChatView: View {
                 }
                 
             }.padding(.horizontal,5)
-        }.navigationTitle(username)
+        }.navigationTitle(contact.name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(false)
+            .onAppear{
+                viewmodel.onAppear(contact: contact)
+            }
+        
     }
 }
 
 #Preview {
-    ChatView(username: "JAMERSON")
+    ChatView(contact: Contacts(name: "Jamerson", profileUrl: "", uuid: UUID().uuidString))
 }

@@ -14,10 +14,24 @@ struct MessagesView: View {
     var body: some View {
         NavigationView{
             VStack{
+                // viewmodel is loading ?
+                List(viewmodel.contacts,id: \.self){contacts in
+                   
+                    NavigationLink {
+                        ChatView(contact: contacts)
+
+                    } label: {
+                        ContactMessageRow(contact: contacts)
+                    }
+
+                    
+                }
                 
                 
-                
-            }.navigationTitle("ChatApp")
+            }.onAppear{
+                viewmodel.getContacts()
+            }
+            .navigationTitle("ChatApp")
                 .searchable(text: $text,prompt: "Pesquisar")
             .toolbar{
                 ToolbarItemGroup( placement: .navigationBarTrailing){

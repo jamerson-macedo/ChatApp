@@ -18,7 +18,7 @@ struct ContactsView: View {
             VStack{
                 
                 List(viewmodel.contacts,id: \.self){ contact in
-                    NavigationLink(destination: ChatView(username:contact.name)){
+                    NavigationLink(destination: ChatView(contact: contact)){
                         ContactView(contact: contact)
                     }
                 }

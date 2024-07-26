@@ -60,9 +60,10 @@ class SignUpViewModel :ObservableObject{
     }
     private func createUser(photoUrl : URL) {
         // docuement() cria um documento com id aleatorio
-        Firestore.firestore().collection("users").document().setData([
+        let id = Auth.auth().currentUser!.uid
+        Firestore.firestore().collection("users").document(id).setData([
             "name": name,
-            "uuid" : Auth.auth().currentUser!.uid,
+            "uuid" : id,
             "profileUrl": photoUrl.absoluteString,
             
         ]){ err in
