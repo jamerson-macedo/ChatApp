@@ -5,13 +5,13 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-
+import SwiftUI
 class ChatViewModel: ObservableObject {
     
     @Published var messages: [Message] = []
     
     @Published var text = ""
-    
+    @Published var tabvisibility :Visibility = .hidden
     var inserting = false
     var newCount = 0
     let limit = 20

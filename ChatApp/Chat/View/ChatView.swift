@@ -11,7 +11,7 @@ struct ChatView: View {
     let contact :Contacts
     @StateObject var viewmodel = ChatViewModel(repo: ChatRepository())
     @State var textSize :CGSize = .zero
-    
+    @Environment(\.dismiss) private var dismiss
     @Namespace var bottomId
     var body: some View {
         VStack{
@@ -58,12 +58,19 @@ struct ChatView: View {
                         TextEditor(text: $viewmodel.text)
                             .autocapitalization(.none)
                             .background(Color.white)
-                            .padding()
+                            .padding(.vertical,12)
+                            .padding(.leading,44)
+                            .padding(.trailing,60)
                             .cornerRadius(24.0)
                             .overlay{
                                 RoundedRectangle(cornerRadius: 24.0)
                                     .strokeBorder(Color(UIColor.separator))
                             }.frame(maxHeight: (textSize.height + 38) > 100 ? 100 : textSize.height + 38)
+                        HStack{
+                            Spacer()
+                            Image(systemName: "paperclip").foregroundColor(.blue)
+                        }.padding(.trailing,10)
+                        
                         
                         Text(viewmodel.text)
                             .opacity(0)
@@ -99,25 +106,65 @@ struct ChatView: View {
                         Button(action: {
                             
                         }, label: {
-                            Image(systemName: "person").padding(.trailing,15)
+                            Image(systemName: "mic.circle.fill").resizable().frame(width: 35,height: 35)
+                                .padding(.trailing,15)
                             
                         })
                     }
                     
                 }.padding(.horizontal,5)
             }
-                
-            }
-            .navigationTitle(contact.name)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(false)
-                .onAppear{
-                    viewmodel.onAppear(contact: contact)
-                }
-              
-               
             
         }
+        .toolbar(viewmodel.tabvisibility, for: .tabBar)
+        .toolbar{
+            ToolbarItem(placement: .topBarLeading){
+                HStack{
+                    Button(action: {
+                        viewmodel.tabvisibility = .visible
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.backward")
+                        
+                    })
+                    AsyncImage(url:URL(string: contact.profileUrl)){ img in
+                        img.resizable().clipShape(Circle())
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 40,height:40)
+                    .padding(.leading, 20)
+                    Text(contact.name).bold()
+                }
+            }
+            ToolbarItem(placement:.topBarTrailing){
+                HStack{
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "video")
+                        
+                    })
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "phone")
+                        
+                    })
+                    
+                    
+                }
+                
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear{
+            viewmodel.onAppear(contact: contact)
+        }
+        
+        
+        
+    }
     
 }
 struct ViewGeometry :View {

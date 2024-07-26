@@ -12,7 +12,7 @@ struct MessagesView: View {
     @State var isPresented = false
     @State private var text = ""
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack{
                 // viewmodel is loading ?
                 List(viewmodel.contacts,id: \.self){contacts in

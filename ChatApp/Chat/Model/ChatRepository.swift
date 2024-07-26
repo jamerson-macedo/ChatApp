@@ -16,7 +16,7 @@ class ChatRepository {
     
     
     func fetchChat(limit: Int, contact: Contacts, lastMessage: Message?, completion: @escaping (Message) -> Void) {
-        let fromId = Auth.auth().currentUser!.uid
+        guard let fromId = Auth.auth().currentUser?.uid else {return }
         
         Firestore.firestore().collection("users")
             .document(fromId)
