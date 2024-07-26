@@ -13,6 +13,9 @@ class ChatViewModel : ObservableObject{
     @Published var text = ""
     var myName = ""
     var myPhoto = ""
+    let limit = 20
+    var insert = false
+    var newCount = 0
     
     func onAppear(contact:Contacts){
         guard let fromId = Auth.auth().currentUser?.uid else {return}
@@ -33,7 +36,9 @@ class ChatViewModel : ObservableObject{
         Firestore.firestore().collection("conversations")
             .document(fromId)
             .collection(contact.uuid)
-            .order(by: "timestamp",descending: false)
+            .order(by: "timestamp",descending: true)
+            .start(after: [self.messages.last?.timestamp ?? 9999999999999])
+            .limit(to: limit)
             .addSnapshotListener{ query, error in
                 if let err = error{
                     print("Error\(err)")
@@ -42,16 +47,29 @@ class ChatViewModel : ObservableObject{
                 // toda vez que mudar ja recebe aqui
                 if let changes = query?.documentChanges{
                     for doc in changes{
-                        let document = doc.document
-                        let message = Message(uuid: document.documentID, text: document.data()["text"] as! String, isMe: fromId == document.data()["fromId"] as! String)
-                        self.messages.append(message)
+                        if doc.type == .added{
+                            let document = doc.document
+                            let message = Message(uuid: document.documentID, text: document.data()["text"] as! String, isMe: fromId == document.data()["fromId"] as! String,timestamp: document.data()["timestamp"] as! UInt)
+                            
+                            if self.insert{
+                                self.messages.insert(message, at: 0)
+                            }else {
+                                self.messages.append(message)
+                            }
+                        }
                     }
+                    self.insert = false
                 }
+                self.newCount = self.messages.count
             
         }
     }
     
     func sendMessage(contact:Contacts){
+        let text = self.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        insert = true
+        self.newCount = newCount + 1
+        //self.text = ""
         let fromId = Auth.auth().currentUser!.uid
         let timeStamp = Date().timeIntervalSince1970
         Firestore.firestore()

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import FirebaseFirestore
+import FirebaseAuth
 class ContactsViewModel : ObservableObject{
     @Published var contacts : [Contacts] = []
     var isloaded = false
@@ -21,10 +22,12 @@ class ContactsViewModel : ObservableObject{
                 return
             }else {
                 for document in querySnapshot!.documents{
-                    print("Documentos \(document.data())") // dados vindo
-                    self.contacts.append(Contacts(name: document.data()["name"] as! String,
-                                             profileUrl: document.data()["profileUrl"] as! String ,
-                                             uuid: document.documentID))
+                    if Auth.auth().currentUser?.uid != document.documentID{
+                        print("Documentos \(document.data())") // dados vindo
+                        self.contacts.append(Contacts(name: document.data()["name"] as! String,
+                                                      profileUrl: document.data()["profileUrl"] as! String ,
+                                                      uuid: document.documentID))
+                    }
                 }
                 self.isloaded = true
             }

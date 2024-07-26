@@ -13,18 +13,14 @@ struct MessageRow: View {
     var body: some View {
         VStack(alignment: message.isMe ? . trailing: .leading){
             Text(message.text)
-                
+    
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
-                
-
+                .padding()
                
-                
-                //.padding(.leading, message.isMe ? 0 : 20)
-                //.padding(.trailing, message.isMe ? 20 : 0)
-                //.padding(.vertical, 5)
         }
-        .background(Color("messageColor"))
+        .background(
+            RoundedRectangle(cornerRadius: 10).fill(message.isMe ? Color("messageColor") : Color.white))
         .frame(maxWidth: .infinity,alignment: message.isMe ? . trailing: .leading)
         .padding(.vertical,2)
         .padding(.horizontal,10)
@@ -37,5 +33,5 @@ struct MessageRow: View {
   
     
 
-    MessageRow(message: Message(uuid: UUID().uuidString, text: "fnwefnjwenfejwf", isMe: true))
+    MessageRow(message: Message(uuid: UUID().uuidString, text: "fnwefnjwenfejwf", isMe: true, timestamp: 11))
 }

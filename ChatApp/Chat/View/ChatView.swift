@@ -18,21 +18,34 @@ struct ChatView: View {
             ScrollViewReader{ proxy in
                 
                 ScrollView(showsIndicators: false){
-                    
-                    
-                    ForEach(viewmodel.messages, id: \.self){ message in
-                        MessageRow(message: message)
-                        
-                    }
-                    // vizualiza se mudou
-                    .onChange(of: viewmodel.messages.count){ _,newValue in
-                        withAnimation{
-                            proxy.scrollTo(bottomId)
-                        }
-                        
-                    }.padding(.horizontal,20)
                     Color.clear.id(bottomId)
+                    LazyVStack{
+                        ForEach(viewmodel.messages, id: \.self){ message in
+                            MessageRow(message: message).scaleEffect(x:1.0,y:-1.0, anchor: .center)
+                                .onAppear{
+                                    if message == viewmodel.messages.last && viewmodel.messages.count >= viewmodel.limit{
+                                        viewmodel.onAppear(contact: contact)
+                                    }
+                                }
+                            
+                        }
+                        // vizualiza se mudou
+                        .onChange(of: viewmodel.newCount){ _,newValue in
+                            if newValue > viewmodel.messages.count{
+                                withAnimation{
+                                    proxy.scrollTo(bottomId)
+                                }
+                            }
+                            
+                        }.padding(.horizontal,20)
+                    }
+                    
                 }
+                .gesture(DragGesture().onChanged({ _ in
+                    UIApplication.shared.endEditing()
+                })) //verificando os gestos no scrool
+                .rotationEffect(Angle(degrees: 180))
+                .scaleEffect(x:-1.0,y: 1.0, anchor: .center)
                 Spacer()
                 HStack{
                     Button(action: {
@@ -50,7 +63,7 @@ struct ChatView: View {
                             .overlay{
                                 RoundedRectangle(cornerRadius: 24.0)
                                     .strokeBorder(Color(UIColor.separator))
-                            }.frame(maxHeight: (textSize.height + 40) > 100 ? 100 : textSize.height + 40)
+                            }.frame(maxHeight: (textSize.height + 38) > 100 ? 100 : textSize.height + 38)
                         
                         Text(viewmodel.text)
                             .opacity(0)

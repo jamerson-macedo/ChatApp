@@ -10,5 +10,6 @@ struct Message : Hashable{
     let uuid :String
     let text :String
     let isMe:Bool // verifica se sou eu que to mandando ou não
+    let timestamp : UInt
    
 }
