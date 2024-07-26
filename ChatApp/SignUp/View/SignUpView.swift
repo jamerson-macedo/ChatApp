@@ -8,59 +8,55 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @ObservedObject var viewModel = SignUpViewModel()
+    @ObservedObject var viewModel = SignUpViewModel(repo: SignUpRepository())
     @State var isShowPhotoLibrary = false
     var body: some View {
         ZStack{
             ScrollView{
-                if case SignUpUiState.loading = viewModel.uiState {
-                    ProgressView()
-                }else {
-                    VStack {
+                VStack {
+                    
+                    HStack{
+                        Image("iconwhats").resizable().scaledToFit().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,height: 100)
+                        Text("Chat App").font(.title).bold().offset(CGSize(width:-10, height: 0))
+                    }
+                    Button(action: {
+                        isShowPhotoLibrary.toggle()
                         
-                        HStack{
-                            Image("iconwhats").resizable().scaledToFit().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,height: 100)
-                            Text("Chat App").font(.title).bold().offset(CGSize(width:-10, height: 0))
+                    }, label: {
+                        if viewModel.image.size.width  > 0{
+                            Image(uiImage: viewModel.image).resizable().scaledToFill().frame(width: 130,height: 130)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.green,lineWidth: 3))
+                                .shadow(radius: 7)
+                            
+                        }else {
+                            Image(systemName:"person.badge.plus").resizable().padding(15).scaledToFill().frame(width: 130,height: 130,alignment: .center)
+                                .foregroundStyle(Color.green)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.green,lineWidth: 3))
+                                .shadow(radius: 7)
                         }
-                        Button(action: {
-                            isShowPhotoLibrary.toggle()
-                            
-                        }, label: {
-                            if viewModel.image.size.width  > 0{
-                                Image(uiImage: viewModel.image).resizable().scaledToFill().frame(width: 130,height: 130)
-                                    .clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.green,lineWidth: 3))
-                                    .shadow(radius: 7)
-                                
-                            }else {
-                                Image(systemName:"person.badge.plus").resizable().padding(15).scaledToFill().frame(width: 130,height: 130,alignment: .center)
-                                    .foregroundStyle(Color.green)
-                                    .clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.green,lineWidth: 3))
-                                    .shadow(radius: 7)
-                            }
-                        }).padding(.bottom,32)
-                            .sheet(isPresented: $isShowPhotoLibrary) {
-                                ImagePicker(selectedImage: $viewModel.image)
-                            }
-                        fullNameField
-                        emailField
-                        passwordField
+                    }).padding(.bottom,32)
+                        .sheet(isPresented: $isShowPhotoLibrary) {
+                            ImagePicker(selectedImage: $viewModel.image)
+                        }
+                    fullNameField
+                    emailField
+                    passwordField
                     
-                        
-                        enterButton
-                        Divider().padding()
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Ja tem uma conta? Clique aqui").foregroundStyle(Color.black)
-                        })
-                        
-                    }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight: .infinity)
-                        .padding(.horizontal,22)
                     
-                }
+                    enterButton
+                    Divider().padding()
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Ja tem uma conta? Clique aqui").foregroundStyle(Color.black)
+                    })
+                    
+                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight: .infinity)
+                    .padding(.horizontal,22)
+                
             }
             if case SignUpUiState.error(let value) = viewModel.uiState{
                 Text("")
@@ -69,7 +65,10 @@ struct SignUpView: View {
                     }
             }
             
-        }}
+            
+            
+        }
+    }
 }
 extension SignUpView{
     var enterButton : some View{

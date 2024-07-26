@@ -11,21 +11,28 @@ class SignInViewModel : ObservableObject{
     @Published var email : String = ""
     @Published var password: String = ""
     @Published var uiState : SignInUiState = .none
+    
+    private let repository : SignInRepository
+    init(repository :SignInRepository){
+        self.repository = repository
+    }
     var formInvalid = false
     @Published var alertText = ""
     func SignIn(){
         self.uiState = .loading
-        Auth.auth().signIn(withEmail: email, password: password){ result, error in
-            guard let user = result?.user, error == nil else {
-                self.alertText = error!.localizedDescription
-                print(error)
-                self.uiState = .error(error?.localizedDescription ?? "Erro desconhecido")
+        repository.signIn(withEmail: email, password: password){ err in
+            if let  err = err{
+                self.uiState = .error(err)
                 return
             }
             self.uiState = .success
-            print("Usuario criado\(user.uid)")
+            
+            
             
         }
+        
+        
+       
         
     }
 }

@@ -11,28 +11,30 @@ import FirebaseFirestore
 import FirebaseAuth
 class ContactsViewModel : ObservableObject{
     @Published var contacts : [Contacts] = []
+    @Published var uiState :ContactsUiState = .none
     var isloaded = false
+    private let repository : ContactsRepository
     
-    
-    func getContacts(){
-        if isloaded {return}
-        Firestore.firestore().collection("users").getDocuments { querySnapshot, err in
-            if let err = err {
-                print("error \(err)")
-                return
-            }else {
-                for document in querySnapshot!.documents{
-                    if Auth.auth().currentUser?.uid != document.documentID{
-                        print("Documentos \(document.data())") // dados vindo
-                        self.contacts.append(Contacts(name: document.data()["name"] as! String,
-                                                      profileUrl: document.data()["profileUrl"] as! String ,
-                                                      uuid: document.documentID))
-                    }
-                }
-                self.isloaded = true
-            }
-        }
-        
+    init(repo: ContactsRepository) {
+     
+        self.repository = repo
     }
+    func getContacts(){
+        
+        self.uiState = .loading
+        
+        repository.getContacts(){ contacts,err  in
+            if let err = err{
+                self.uiState = .error(err)
+            }
+            self.contacts.removeAll()
+            self.contacts.append(contentsOf:contacts)
+            self.uiState = .success
+        
+        }
+    }
+        
+        
+    
     
 }

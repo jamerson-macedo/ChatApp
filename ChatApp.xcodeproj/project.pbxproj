@@ -38,6 +38,12 @@
 		CFDA0E812C5399F200977B72 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E802C5399F200977B72 /* ChatView.swift */; };
 		CFDA0E832C539ABF00977B72 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E822C539ABF00977B72 /* MessageRow.swift */; };
 		CFDA0E852C53C18A00977B72 /* ContactMessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E842C53C18A00977B72 /* ContactMessageRow.swift */; };
+		CFDA0E8A2C53F67300977B72 /* SignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E892C53F67300977B72 /* SignInRepository.swift */; };
+		CFDA0E8C2C53FB8000977B72 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E8B2C53FB8000977B72 /* SignUpRepository.swift */; };
+		CFDA0E8E2C5401EE00977B72 /* MessagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E8D2C5401EE00977B72 /* MessagesRepository.swift */; };
+		CFDA0E902C54042400977B72 /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E8F2C54042400977B72 /* ContactsRepository.swift */; };
+		CFDA0E922C54065E00977B72 /* ContactsUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E912C54065E00977B72 /* ContactsUiState.swift */; };
+		CFDA0E942C540A8700977B72 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E932C540A8700977B72 /* ChatRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +76,12 @@
 		CFDA0E802C5399F200977B72 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		CFDA0E822C539ABF00977B72 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 		CFDA0E842C53C18A00977B72 /* ContactMessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMessageRow.swift; sourceTree = "<group>"; };
+		CFDA0E892C53F67300977B72 /* SignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepository.swift; sourceTree = "<group>"; };
+		CFDA0E8B2C53FB8000977B72 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
+		CFDA0E8D2C5401EE00977B72 /* MessagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRepository.swift; sourceTree = "<group>"; };
+		CFDA0E8F2C54042400977B72 /* ContactsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
+		CFDA0E912C54065E00977B72 /* ContactsUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUiState.swift; sourceTree = "<group>"; };
+		CFDA0E932C540A8700977B72 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				CFDA0E4A2C4F4EFA00977B72 /* SignInUiState.swift */,
+				CFDA0E892C53F67300977B72 /* SignInRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				CF676FE72C4B0D290034C448 /* SignUpUiState.swift */,
+				CFDA0E8B2C53FB8000977B72 /* SignUpRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +345,8 @@
 			isa = PBXGroup;
 			children = (
 				CFDA0E712C51CFB600977B72 /* Contacts.swift */,
+				CFDA0E8F2C54042400977B72 /* ContactsRepository.swift */,
+				CFDA0E912C54065E00977B72 /* ContactsUiState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +354,7 @@
 		CFDA0E752C53984F00977B72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA0E8D2C5401EE00977B72 /* MessagesRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -373,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				CFDA0E762C53985C00977B72 /* Message.swift */,
+				CFDA0E932C540A8700977B72 /* ChatRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,14 +475,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF676FDA2C4B033C0034C448 /* SignUpView.swift in Sources */,
+				CFDA0E8C2C53FB8000977B72 /* SignUpRepository.swift in Sources */,
 				CFDA0E602C51B47300977B72 /* HomeView.swift in Sources */,
 				CFDA0E812C5399F200977B72 /* ChatView.swift in Sources */,
 				CFDA0E492C4F490900977B72 /* LoadingButton.swift in Sources */,
+				CFDA0E942C540A8700977B72 /* ChatRepository.swift in Sources */,
 				CFDA0E742C51DEF100977B72 /* ContactView.swift in Sources */,
 				CF676FC42C4A21D00034C448 /* SignInView.swift in Sources */,
 				CFDA0E722C51CFB600977B72 /* Contacts.swift in Sources */,
 				CFDA0E772C53985C00977B72 /* Message.swift in Sources */,
 				CFDA0E832C539ABF00977B72 /* MessageRow.swift in Sources */,
+				CFDA0E922C54065E00977B72 /* ContactsUiState.swift in Sources */,
 				CFDA0E852C53C18A00977B72 /* ContactMessageRow.swift in Sources */,
 				CFDA0E4D2C4F525100977B72 /* ImagePicker.swift in Sources */,
 				CF676FDC2C4B036F0034C448 /* SignUpViewModel.swift in Sources */,
@@ -475,12 +496,15 @@
 				CFDA0E652C51CDA900977B72 /* ConfigsView.swift in Sources */,
 				CFDA0E552C51A3BF00977B72 /* ContentViewModel.swift in Sources */,
 				CFDA0E5C2C51A69900977B72 /* MessagesViewModel.swift in Sources */,
+				CFDA0E8A2C53F67300977B72 /* SignInRepository.swift in Sources */,
 				CFDA0E5A2C51A68B00977B72 /* MessagesView.swift in Sources */,
 				CFDA0E4B2C4F4EFA00977B72 /* SignInUiState.swift in Sources */,
+				CFDA0E902C54042400977B72 /* ContactsRepository.swift in Sources */,
 				CFDA0E6C2C51CEF400977B72 /* ContactsView.swift in Sources */,
 				CF676FD52C4AFD620034C448 /* SignInViewModel.swift in Sources */,
 				CFDA0E7F2C53991B00977B72 /* ChatViewModel.swift in Sources */,
 				CF676FE82C4B0D290034C448 /* SignUpUiState.swift in Sources */,
+				CFDA0E8E2C5401EE00977B72 /* MessagesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

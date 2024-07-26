@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChatView: View {
     let contact :Contacts
-    @StateObject var viewmodel = ChatViewModel()
+    @StateObject var viewmodel = ChatViewModel(repo: ChatRepository())
     @State var textSize :CGSize = .zero
     
     @Namespace var bottomId
@@ -105,15 +105,20 @@ struct ChatView: View {
                     }
                     
                 }.padding(.horizontal,5)
-            }.navigationTitle(contact.name)
+            }
+                
+            }
+            .navigationTitle(contact.name)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(false)
                 .onAppear{
                     viewmodel.onAppear(contact: contact)
                 }
+              
+               
+            
         }
-        
-    }
+    
 }
 struct ViewGeometry :View {
     var body: some View {

@@ -18,6 +18,12 @@ class SignUpViewModel :ObservableObject{
     @Published var password = ""
     var formInvalid = false
     @Published var alertText = ""
+    
+    private let repository :SignUpRepository
+    
+    init(repo:SignUpRepository){
+        self.repository = repo
+    }
     func signUp(){
         
         
@@ -26,55 +32,12 @@ class SignUpViewModel :ObservableObject{
             return
         }
         self.uiState = .loading
-        Auth.auth().createUser(withEmail: email, password: password){ result, error in
-            guard let user = result?.user, error == nil else {
-                self.formInvalid = true
-                self.alertText = error!.localizedDescription
-                print(error)
-                self.uiState = .error(error?.localizedDescription ?? "Erro desconhecido")
-                return
+        repository.signUp(withEmail: email, password: password, image: image, name: name){ err in
+            if let err = err{
+                self.uiState = .error(err)
             }
             self.uiState = .success
-            print("Usuario criado\(user.uid)")
-            self.uploadPhoto()
         }
     }
-    private func uploadPhoto(){
-        let filename = UUID().uuidString
-        
-        guard let data = image.jpegData(compressionQuality: 0.2) else {return }
-        let newMetadata = StorageMetadata()
-        newMetadata.contentType = "image/jpeg"
-        
-        let ref = Storage.storage().reference(withPath: "/images/\(filename).jpg")
-        
-        ref.putData(data,metadata: newMetadata){ metadata, error in
-            ref.downloadURL{ url,error in
-                self.uiState = .success
-                print("foto criada\(url)")
-                guard let imageUrl = url else {return}
-                self.createUser(photoUrl: imageUrl)
-                
-            }
-        }
-    }
-    private func createUser(photoUrl : URL) {
-        // docuement() cria um documento com id aleatorio
-        let id = Auth.auth().currentUser!.uid
-        Firestore.firestore().collection("users").document(id).setData([
-            "name": name,
-            "uuid" : id,
-            "profileUrl": photoUrl.absoluteString,
-            
-        ]){ err in
-            self.uiState = .loading
-            if err != nil {
-                self.uiState = .error(err!.localizedDescription)
-                print("error\(err?.localizedDescription)")
-                return
-            }
-            
-        }
-        
-    }
+   
 }

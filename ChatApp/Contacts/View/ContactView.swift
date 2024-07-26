@@ -11,7 +11,7 @@ struct ContactView: View {
     var contact:Contacts
     var body: some View {
         HStack(){
-       
+            
             AsyncImage(url:URL(string: contact.profileUrl)){ img in
                 img.resizable().clipShape(Circle())
             } placeholder: {

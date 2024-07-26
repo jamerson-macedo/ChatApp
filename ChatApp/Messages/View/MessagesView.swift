@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MessagesView: View {
-    @StateObject var viewmodel = MessagesViewModel()
+    @StateObject var viewmodel = MessagesViewModel(repo: MessagesRepository())
     @State var isPresented = false
     @State private var text = ""
     var body: some View {
@@ -30,7 +30,11 @@ struct MessagesView: View {
                 
                 
             }.onAppear{
+                viewmodel.handleEnabled(enabled: true)
                 viewmodel.getContacts()
+            }
+            .onDisappear{
+                viewmodel.handleEnabled(enabled: false)
             }
             .navigationTitle("ChatApp")
                 .searchable(text: $text,prompt: "Pesquisar")
@@ -59,5 +63,5 @@ struct MessagesView: View {
 }
 
 #Preview {
-    MessagesView(viewmodel: MessagesViewModel())
+    MessagesView(viewmodel: MessagesViewModel(repo: MessagesRepository()))
 }
