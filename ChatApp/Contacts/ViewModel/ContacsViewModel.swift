@@ -10,9 +10,11 @@ import SwiftUI
 import FirebaseFirestore
 class ContactsViewModel : ObservableObject{
     @Published var contacts : [Contacts] = []
+    var isloaded = false
     
     
     func getContacts(){
+        if isloaded {return}
         Firestore.firestore().collection("users").getDocuments { querySnapshot, err in
             if let err = err {
                 print("error \(err)")
@@ -24,6 +26,7 @@ class ContactsViewModel : ObservableObject{
                                              profileUrl: document.data()["profileUrl"] as! String ,
                                              uuid: document.documentID))
                 }
+                self.isloaded = true
             }
         }
         
