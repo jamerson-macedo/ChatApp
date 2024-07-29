@@ -12,12 +12,14 @@ struct MessageRow: View {
     
     var body: some View {
         VStack(alignment: message.isMe ? . trailing: .leading){
-            Text(message.text)
-    
-                .lineLimit(nil)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding()
-               
+            HStack{
+                Text(message.text)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding()
+             
+                
+            }
         }
         .background(
             RoundedRectangle(cornerRadius: 10).fill(message.isMe ? Color("messageColor") : Color.white))
@@ -33,5 +35,5 @@ struct MessageRow: View {
   
     
 
-    MessageRow(message: Message(uuid: UUID().uuidString, text: "fnwefnjwenfejwf", isMe: true, timestamp: 11))
+    MessageRow(message: Message(uuid: UUID().uuidString, text: "fnwefnjwenfejwffjrfnjerfnjernfejrnfernfjernfjernfjernf", isMe: true, timestamp: 11))
 }

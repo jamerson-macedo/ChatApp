@@ -20,6 +20,8 @@ struct ChatView: View {
                 ScrollView(showsIndicators: false){
                     Color.clear.id(bottomId)
                     LazyVStack{
+                      
+                        
                         ForEach(viewmodel.messages, id: \.self){ message in
                             MessageRow(message: message).scaleEffect(x:1.0,y:-1.0, anchor: .center)
                                 .onAppear{
@@ -59,17 +61,20 @@ struct ChatView: View {
                             .autocapitalization(.none)
                             .background(Color.white)
                             .padding(.vertical,12)
-                            .padding(.leading,44)
-                            .padding(.trailing,60)
+                            .padding(.leading,5)
+                            .padding(.trailing,5)
                             .cornerRadius(24.0)
                             .overlay{
                                 RoundedRectangle(cornerRadius: 24.0)
                                     .strokeBorder(Color(UIColor.separator))
                             }.frame(maxHeight: (textSize.height + 38) > 100 ? 100 : textSize.height + 38)
-                        HStack{
-                            Spacer()
-                            Image(systemName: "paperclip").foregroundColor(.blue)
-                        }.padding(.trailing,10)
+                        if viewmodel.text.isEmpty{
+                            HStack{
+                                Spacer()
+                                Image(systemName: "paperclip").foregroundColor(.blue)
+                            }.padding(.trailing,10)
+                        }
+                        
                         
                         
                         Text(viewmodel.text)

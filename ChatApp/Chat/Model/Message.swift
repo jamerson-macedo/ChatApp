@@ -11,5 +11,12 @@ struct Message : Hashable{
     let text :String
     let isMe:Bool // verifica se sou eu que to mandando ou não
     let timestamp : UInt
+    
    
 }
+struct MessageGroup : Hashable{
+    var id = UUID().uuidString
+    var messages : [Message]
+    var date :Date
+}
+

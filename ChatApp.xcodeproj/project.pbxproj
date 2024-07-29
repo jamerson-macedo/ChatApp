@@ -44,6 +44,7 @@
 		CFDA0E902C54042400977B72 /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E8F2C54042400977B72 /* ContactsRepository.swift */; };
 		CFDA0E922C54065E00977B72 /* ContactsUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E912C54065E00977B72 /* ContactsUiState.swift */; };
 		CFDA0E942C540A8700977B72 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E932C540A8700977B72 /* ChatRepository.swift */; };
+		CFDA0E972C579D9600977B72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDA0E962C579D9600977B72 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		CFDA0E8F2C54042400977B72 /* ContactsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
 		CFDA0E912C54065E00977B72 /* ContactsUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUiState.swift; sourceTree = "<group>"; };
 		CFDA0E932C540A8700977B72 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		CFDA0E962C579D9600977B72 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		CF676FC02C4A21D00034C448 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				CFDA0E952C579D8200977B72 /* Util */,
 				CFDA0E782C5398E100977B72 /* Chat */,
 				CFDA0E682C51CED600977B72 /* Contacts */,
 				CFDA0E612C51CD9000977B72 /* Configs */,
@@ -395,6 +398,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CFDA0E952C579D8200977B72 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CFDA0E962C579D9600977B72 /* Date.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -477,6 +488,7 @@
 				CF676FDA2C4B033C0034C448 /* SignUpView.swift in Sources */,
 				CFDA0E8C2C53FB8000977B72 /* SignUpRepository.swift in Sources */,
 				CFDA0E602C51B47300977B72 /* HomeView.swift in Sources */,
+				CFDA0E972C579D9600977B72 /* Date.swift in Sources */,
 				CFDA0E812C5399F200977B72 /* ChatView.swift in Sources */,
 				CFDA0E492C4F490900977B72 /* LoadingButton.swift in Sources */,
 				CFDA0E942C540A8700977B72 /* ChatRepository.swift in Sources */,

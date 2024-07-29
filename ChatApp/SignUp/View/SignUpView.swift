@@ -49,6 +49,7 @@ struct SignUpView: View {
                     Divider().padding()
                     
                     Button(action: {
+                        viewModel.signUp()
                         
                     }, label: {
                         Text("Ja tem uma conta? Clique aqui").foregroundStyle(Color.black)
